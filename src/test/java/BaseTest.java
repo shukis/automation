@@ -43,9 +43,12 @@ public class BaseTest {
 
     @BeforeTest(alwaysRun = true)
     public void beforeTest() throws Exception {
+        userDir = "/Users/" +
+                System.getProperty("user.name") +
+                "/Downloads/test_clients/";
+        userDir = userDir.replace("\"", "");
         System.out.println("BeforeTest:");
-        userDir = "/Users/Pavel/Desktop/Pocotest-master/app/build/outputs/apk/";
-        fileName = "app-debug.apk";
+        fileName = "pavel.apk";
         appDir = new File(userDir, fileName);
         app = appDir.getAbsolutePath();
         System.out.println("file location: " + app);

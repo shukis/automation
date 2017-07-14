@@ -1,0 +1,56 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="Test_Android">
+    <!--
+    <listeners>
+        <listener class-name="com.poco.base.RetryListener" />
+        <listener class-name="com.poco.base.TestListener" />
+    </listeners>
+    -->
+    <parameter name="runDestination" value="Local"/> <!-- Local / genymotion / emulator-->
+    <parameter name="devicePlatform" value="android"/>
+    <parameter name="appType" value="alpha"/> <!-- alpha toru pang-->
+    <parameter name="appiumServer2_Port" value="4726"/> <!-- 4725 Android_1, 4726 Android_2, 4727 iOS-->
+
+    <!--
+    <parameter name="appPackage" value="ee.poco.alpha"/>
+    <parameter name="appActivity" value="ee.poco.activity.SplashScreenActivity"/>
+
+    <parameter name="deviceName" value="Nexus_5_API22"/>
+    <parameter name="devicePlatform" value="android fastReset"/>
+    <parameter name="devicePlatform" value="android fullReset/>
+
+
+    <parameter name="runDestination" value="genymotion"/>
+    <parameter name="runDestination" value="Local"/>
+
+    <parameter name="deviceID" value="192.168.56.101:5555"/>
+
+    <parameter name="deviceName" value="Nexus4"/>
+    <parameter name="deviceName" value="Nexus5_API18"/>
+    <parameter name="deviceName" value="LGH8155e9892e6"/> = LG G4
+
+    <parameter name="osVersion" value="8.1"/>
+
+    <parameter name="appType" value="alpha"/>
+    <parameter name="appType" value="toru"/>
+
+    <parameter name="appPackage" value="com.android.mms"/>
+    <parameter name="appActivity" value=".ui.ConversationList"/>
+
+    <parameter name="appPackage" value="ee.poco.alpha"/>
+    <parameter name="appActivity" value="ee.poco.activity.SplashScreenActivity"/>
+    -->
+
+    <test name="Do_Test_1" preserve-order="true">
+        <parameter name="runDestination" value="Local"/> <!-- Local / genymotion / emulator-->
+        <parameter name="devicePlatform" value="android"/> <!-- fastReset -->
+        <parameter name="deviceName" value="ce12160c130ae41504"/> <!-- 0715f7a597583b36 (Samsung S6) YT911B1KQX (Sony M4) ENU7N16126001437 (Nexus6) ENU7N16126001437 (Nexus 5x) LGH8155e9892e6 (G4) LGH85093d50481 (G5) / emulator-5554  06be239860ade52c -->
+        <classes>
+            <class name="SingInTest">
+                <methods>
+                    <include name="sign_in"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

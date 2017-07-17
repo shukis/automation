@@ -17,14 +17,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class SignUpFirstPage {
 
-    @AndroidFindBy(id = "fdgdr")
-    AndroidElement mainContainer;
-
-    @HowToUseLocators(androidAutomation = LocatorGroupStrategy.CHAIN)
-    @AndroidFindBy(id = "fvfrfre")
-    @AndroidFindBy(className = "android.widget.TextView")
-    public List<AndroidElement> textViews;
-
     @AndroidFindBy(id="com.example.user.pocotest:id/signUpFirstContinue")
     AndroidElement gotItButton;
 
@@ -32,9 +24,9 @@ public class SignUpFirstPage {
         PageFactory.initElements(new AppiumFieldDecorator(driver, 1, TimeUnit.SECONDS), this);
     }
 
-    public void checkGotItButton(){
-        System.out.println(" check 'GOT IT!' button");
-        Assert.assertEquals("GOT IT!",gotItButton.getText());
+    public void tapGotItButton(){
+        System.out.println(" tap 'GOT IT!' button");
+        gotItButton.click();
     }
 
 }

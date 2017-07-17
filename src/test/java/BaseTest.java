@@ -104,7 +104,7 @@ public class BaseTest {
 
         // server 1
         List list = new ArrayList<String>();
-        list.add("appium.cmd");
+        list.add("appium");
         list.add("--log-level");
         if (devicePlatform.contains("android")) {
             list.add("error");

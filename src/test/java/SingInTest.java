@@ -25,7 +25,8 @@ public class SingInTest extends BaseTest {
         congratulationPage.tapCongratulationButton();
         Assert.assertTrue(mainPage.checkWelcomeText());
 
-
     }
+
+
 
 }

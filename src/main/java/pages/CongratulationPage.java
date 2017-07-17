@@ -16,10 +16,19 @@ public class CongratulationPage {
     @AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector()).scrollIntoView("
             + "new UiSelector().resourceIdMatches(\".*id/congratulationButton\"))")
     private AndroidElement button;
+    @AndroidFindBy(id = "com.example.user.pocotest:id/congratulationTextView")
+    AndroidElement textView;
 
 
     public CongratulationPage(AndroidDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver, 10, TimeUnit.SECONDS), this);
+    }
+
+    public boolean checkCongratulationPage() {
+        if (textView.getText().equals("Congratulations on the successful registration!")){
+            return true;
+    }
+        return false;
     }
 
     public void tapCongratulationButton(){

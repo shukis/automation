@@ -2,29 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b53921e4-05ad-4143-a4f3-f9096901d913" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/BaseTest.class" afterPath="$PROJECT_DIR$/target/test-classes/BaseTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pages/CongratulationPage.java" afterPath="$PROJECT_DIR$/src/main/java/pages/CongratulationPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pages/signUp/SignUpSecondPage.java" afterPath="$PROJECT_DIR$/src/main/java/pages/signUp/SignUpSecondPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pages/signUp/SignUpThirdPage.java" afterPath="$PROJECT_DIR$/src/main/java/pages/signUp/SignUpThirdPage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/BaseTest.java" afterPath="$PROJECT_DIR$/src/test/java/BaseTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/SignUpTest.java" afterPath="$PROJECT_DIR$/src/test/java/SignUpTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/SingInTest.java" afterPath="$PROJECT_DIR$/src/test/java/SingInTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test_Android.xml" afterPath="$PROJECT_DIR$/src/test/java/test_Android.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TestSuite.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-TestSuite.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TestSuite.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/TestSuite.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/Test_Android/Do_Test_1.html" afterPath="$PROJECT_DIR$/target/surefire-reports/Test_Android/Do_Test_1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/Test_Android/Do_Test_1.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/Test_Android/Do_Test_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/emailable-report.html" afterPath="$PROJECT_DIR$/target/surefire-reports/emailable-report.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/index.html" afterPath="$PROJECT_DIR$/target/surefire-reports/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-SingInTest.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-SingInTest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/old/Test_Android/methods-alphabetical.html" afterPath="$PROJECT_DIR$/target/surefire-reports/old/Test_Android/methods-alphabetical.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/old/Test_Android/methods.html" afterPath="$PROJECT_DIR$/target/surefire-reports/old/Test_Android/methods.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/old/Test_Android/toc.html" afterPath="$PROJECT_DIR$/target/surefire-reports/old/Test_Android/toc.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/old/index.html" afterPath="$PROJECT_DIR$/target/surefire-reports/old/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/testng-results.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/testng-results.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -38,11 +16,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BaseTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BaseTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/BaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
-              <caret line="42" column="18" lean-forward="false" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+              <caret line="114" column="9" lean-forward="false" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,13 +42,13 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/pages/CongratulationPage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="281">
-              <caret line="37" column="1" lean-forward="true" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+              <caret line="37" column="1" lean-forward="false" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SingInTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SingInTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/SingInTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="196">
@@ -202,8 +180,8 @@
         <option value="$PROJECT_DIR$/src/main/java/pages/CongratulationPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/SignUpTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/test_Android.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/BaseTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/SingInTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/BaseTest.java" />
       </list>
     </option>
   </component>
@@ -676,9 +654,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="C__Users_Pavel_Documents_shukis_src_test_java_test_Android_xml - 2017.07.17 at 15h 23m 30s.xml">
-      <configuration name="C:/Users/Pavel/Documents/shukis/src/test/java/test_Android.xml" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="C__Users_Pavel_Documents_shukis_src_test_java_test_Android_xml - 2017.07.17 at 15h 25m 10s.xml">
       <configuration name="C:/Users/Pavel/Documents/shukis/src/test/java/test_Android.xml" configurationId="TestNG" />
     </history-entry>
@@ -706,6 +681,9 @@
     <history-entry file="C__Users_Pavel_Documents_shukis_src_test_java_test_Android_xml - 2017.07.17 at 15h 48m 47s.xml">
       <configuration name="C:/Users/Pavel/Documents/shukis/src/test/java/test_Android.xml" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="C__Users_Pavel_Documents_shukis_src_test_java_test_Android_xml - 2017.07.17 at 15h 54m 07s.xml">
+      <configuration name="C:/Users/Pavel/Documents/shukis/src/test/java/test_Android.xml" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="1798" y="117" width="1616" height="876" extended-state="0" />
@@ -720,7 +698,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41122717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41122717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -985,7 +963,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/pages/CongratulationPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
-          <caret line="37" column="1" lean-forward="true" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+          <caret line="37" column="1" lean-forward="false" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1011,20 +989,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/BaseTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/SingInTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="42" column="18" lean-forward="false" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+        <state relative-caret-position="196">
+          <caret line="21" column="57" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/SingInTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/BaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="21" column="57" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+        <state relative-caret-position="154">
+          <caret line="114" column="9" lean-forward="false" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

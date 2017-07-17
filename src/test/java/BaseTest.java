@@ -113,7 +113,6 @@ public class BaseTest {
             list.add("appium");
 
         }
-        list.add("appium.cmd");
         list.add("--log-level");
         if (devicePlatform.contains("android")) {
             list.add("error");

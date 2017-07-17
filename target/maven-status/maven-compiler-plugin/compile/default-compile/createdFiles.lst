@@ -1,0 +1,7 @@
+pages\LoginPage.class
+pages\signUp\SignUpSecondPage.class
+pages\CongratulationPage.class
+pages\signUp\SignUpFirstPage.class
+AppiumDriverBuilder.class
+pages\MainPage.class
+pages\signUp\SignUpThirdPage.class

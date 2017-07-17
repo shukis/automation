@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b53921e4-05ad-4143-a4f3-f9096901d913" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/surefire-reports/Test_Android/testng-failed.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/surefire-reports/testng-failed.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/surefire/surefire5967003016688054817tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/surefire/surefire_01015436642943054426tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/surefire/surefirebooter3419174194264375839.jar" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/BaseTest.java" afterPath="$PROJECT_DIR$/src/test/java/BaseTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test_Android.xml" afterPath="$PROJECT_DIR$/src/test/java/test_Android.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -22,8 +22,8 @@
       <file leaf-file-name="BaseTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/BaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="147" column="32" lean-forward="true" selection-start-line="147" selection-start-column="32" selection-end-line="147" selection-end-column="32" />
+            <state relative-caret-position="196">
+              <caret line="70" column="48" lean-forward="true" selection-start-line="70" selection-start-column="48" selection-end-line="70" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -657,18 +657,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="C__Users_Pavel_Documents_shukis_src_test_java_test_Android_xml - 2017.07.17 at 15h 25m 10s.xml">
-      <configuration name="C:/Users/Pavel/Documents/shukis/src/test/java/test_Android.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__Users_Pavel_Documents_shukis_src_test_java_test_Android_xml - 2017.07.17 at 15h 26m 36s.xml">
-      <configuration name="C:/Users/Pavel/Documents/shukis/src/test/java/test_Android.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__Users_Pavel_Documents_shukis_src_test_java_test_Android_xml - 2017.07.17 at 15h 27m 53s.xml">
-      <configuration name="C:/Users/Pavel/Documents/shukis/src/test/java/test_Android.xml" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="C__Users_Pavel_Documents_shukis_src_test_java_test_Android_xml - 2017.07.17 at 15h 30m 12s.xml">
-      <configuration name="C:/Users/Pavel/Documents/shukis/src/test/java/test_Android.xml" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="C__Users_Pavel_Documents_shukis_src_test_java_test_Android_xml - 2017.07.17 at 15h 30m 38s.xml">
       <configuration name="C:/Users/Pavel/Documents/shukis/src/test/java/test_Android.xml" configurationId="TestNG" />
     </history-entry>
@@ -687,10 +675,21 @@
     <history-entry file="C__Users_Pavel_Documents_shukis_src_test_java_test_Android_xml - 2017.07.17 at 15h 54m 07s.xml">
       <configuration name="C:/Users/Pavel/Documents/shukis/src/test/java/test_Android.xml" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="C__Users_Pavel_Documents_shukis_src_test_java_test_Android_xml - 2017.07.17 at 16h 49m 44s.xml">
+      <configuration name="C:/Users/Pavel/Documents/shukis/src/test/java/test_Android.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="C__Users_Pavel_Documents_shukis_src_test_java_test_Android_xml - 2017.07.17 at 16h 52m 03s.xml">
+      <configuration name="C:/Users/Pavel/Documents/shukis/src/test/java/test_Android.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="C__Users_Pavel_Documents_shukis_src_test_java_test_Android_xml - 2017.07.17 at 16h 53m 31s.xml">
+      <configuration name="C:/Users/Pavel/Documents/shukis/src/test/java/test_Android.xml" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="C__Users_Pavel_Documents_shukis_src_test_java_test_Android_xml - 2017.07.17 at 16h 54m 37s.xml">
+      <configuration name="C:/Users/Pavel/Documents/shukis/src/test/java/test_Android.xml" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="1798" y="117" width="1616" height="876" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -701,7 +700,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41122717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41122717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1004,8 +1003,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/BaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="147" column="32" lean-forward="true" selection-start-line="147" selection-start-column="32" selection-end-line="147" selection-end-column="32" />
+        <state relative-caret-position="196">
+          <caret line="70" column="48" lean-forward="true" selection-start-line="70" selection-start-column="48" selection-end-line="70" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

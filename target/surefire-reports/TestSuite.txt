@@ -1,0 +1,29 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 3, Errors: 0, Skipped: 1, Time elapsed: 175.031 sec <<< FAILURE! - in TestSuite
+requestSignUp(SignUpTest)  Time elapsed: 33.138 sec  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+An unknown server-side error occurred while processing the command. Original error: UiAUtomator shut down unexpectedly (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 2.62 seconds
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'DESKTOP-O7AV493', ip: '172.16.5.45', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_111'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities [{app=C:\Users\Pavel\Downloads\test_clients\pavel.apk, appPackage=com.example.user.pocotest, deviceScreenSize=1440x2560, networkConnectionEnabled=true, warnings={}, appWaitActivity=com.example.user.pocotest.*, appWaitPackage=com.example.user.pocotest, databaseEnabled=false, deviceName=ce12160c130ae41504, platform=LINUX, deviceUDID=ce12160c130ae41504, appActivity=com.example.user.pocotest.activities.WelcomeActivity, desired={app=C:\Users\Pavel\Downloads\test_clients\pavel.apk, appPackage=com.example.user.pocotest, appWaitActivity=com.example.user.pocotest.*, platformName=Android, deviceName=Samsung}, platformVersion=7.0, webStorageEnabled=false, locationContextEnabled=false, takesScreenshot=true, javascriptEnabled=true, deviceModel=SM-G935F, platformName=Android, deviceManufacturer=samsung}]
+Session ID: de7ca3a5-2003-4d3f-ad2e-7c00dc593fb5
+	at SignUpTest.requestSignUp(SignUpTest.java:28)
+
+AfterMethod(SignUpTest)  Time elapsed: 89.86 sec  <<< FAILURE!
+org.openqa.selenium.SessionNotCreatedException: 
+Unable to create new remote session. desired capabilities = Capabilities [{app=C:\Users\Pavel\Downloads\test_clients\pavel.apk, appPackage=com.example.user.pocotest, appWaitActivity=com.example.user.pocotest.*, platformName=Android, deviceName=Samsung}], required capabilities = Capabilities [{}]
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'DESKTOP-O7AV493', ip: '172.16.5.45', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_111'
+Driver info: driver.version: AndroidDriver
+
+beforeMethod(SingInTest)  Time elapsed: 144.969 sec  <<< FAILURE!
+org.openqa.selenium.SessionNotCreatedException: 
+Unable to create new remote session. desired capabilities = Capabilities [{app=C:\Users\Pavel\Downloads\test_clients\pavel.apk, appPackage=com.example.user.pocotest, appWaitActivity=com.example.user.pocotest.*, platformName=Android, deviceName=Samsung}], required capabilities = Capabilities [{}]
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'DESKTOP-O7AV493', ip: '172.16.5.45', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_111'
+Driver info: driver.version: AndroidDriver
+

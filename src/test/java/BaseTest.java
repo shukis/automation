@@ -70,7 +70,6 @@ public class BaseTest {
     @AfterMethod(alwaysRun = true)
     public void AfterMethod() throws Exception {
         System.out.println("AfterMethod method:");
-        setupDriver();
         System.out.println("AfterMethod method: end");
     }
 
@@ -102,17 +101,41 @@ public class BaseTest {
     }
 
     private void startLocalAppiumServer(final String devicePlatform) {
-        if (port == null) {
-            port = "4725";
+        String[] cmd;
+        System.out.println("   kill Appium server");
+        if (port==null) {
+            port = "4725"; // default Android server 1 port
         }
-
+        if(System.getProperty("os.name").contains("Windows")){
+            cmd = new String[] {"FOR /F ","\"tokens=5 delims= \""," %P IN ('netstat -a -n -o ^| findstr :"+port+"') DO TaskKill.exe /F /PID %P"};
+        }else{
+            cmd = new String[]{"sh", "-c", "lsof -P | grep ':" + port + "' | awk '{print $2}' | xargs kill -9"};
+        }
+        ProcessBuilder pb = new ProcessBuilder(cmd);
+        pb.redirectErrorStream(true);
+        pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+        try {
+            final Process p = pb.start();
+            // wait for termination.
+            p.waitFor();
+            //System.out.println("   executeShell(): - DONE!");
+            p.destroy();
+            if (p.isAlive()) {
+                System.out.println("  executeShell(): closing Forcibly");
+                p.destroyForcibly();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         //start server
         System.out.println("   start Appium server");
 
         // server 1
         List list = new ArrayList<String>();
         System.out.println(System.getProperty("os.name"));
-        if (System.getProperty("os.name").equals("Windows 10")) {
+        if (System.getProperty("os.name").contains("Windows")) {
             list.add("appium.cmd");
         } else {
             list.add("appium");

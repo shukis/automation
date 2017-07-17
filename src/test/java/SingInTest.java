@@ -19,7 +19,7 @@ public class SingInTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         mainPage.tapLoginButton();
         loginPage.checkToolbar();
-        loginPage.fillEditTextFields("a@b.com","ababab");
+        loginPage.fillEditTextFields("abb@c.com","abcabc");
         loginPage.taploginButton();
         CongratulationPage congratulationPage = new CongratulationPage(driver);
         congratulationPage.tapCongratulationButton();

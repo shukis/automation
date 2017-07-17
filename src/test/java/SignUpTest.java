@@ -23,18 +23,18 @@ public class SignUpTest extends BaseTest {
         CongratulationPage congratulationPage = new CongratulationPage(driver);
         mainPage.tapSignUpButton();
         signUpFirstPage.tapGotItButton();
-        signUpSecondPage.fillEditTextFields("ab@c.com","abcabc");
+        signUpSecondPage.fillEditTextFields("abb@c.com","abcabc");
         signUpSecondPage.tapNextStepButton();
         signUpThirdPage.fillEditTextFields("Tallinn","12345");
         signUpThirdPage.tapNextStepButton();
-        if(congratulationPage.checkCongratulationPage()){
-            congratulationPage.tapCongratulationButton();
-        }else{
+        Thread.sleep(10000);
+        if(driver.currentActivity().contains("SecondActivity")){
             driver.hideKeyboard();
             driver.navigate().back();
             driver.navigate().back();
+        }else {
+            congratulationPage.tapCongratulationButton();
         }
-
         Assert.assertTrue(mainPage.checkWelcomeText());
 
     }

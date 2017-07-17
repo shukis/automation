@@ -29,6 +29,7 @@ public class SignUpThirdPage {
 
     }
 
+
     public void fillEditTextField(AndroidElement element, String value) {
         if (element == city) {
             city.sendKeys(value);

@@ -8,6 +8,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
 import java.io.File;
@@ -39,15 +40,15 @@ public class BaseTest {
     public static String userDir;
     public static String fileName;
 
-    File appDir = null;
+    public static File appDir = null;
 
-    @BeforeTest(alwaysRun = true)
-    public void beforeTest() throws Exception {
+    @BeforeSuite(alwaysRun = true)
+    public void beforeSuite() throws Exception {
         userDir = "/Users/" +
                 System.getProperty("user.name") +
                 "/Downloads/test_clients/";
         userDir = userDir.replace("\"", "");
-        System.out.println("BeforeTest:");
+        System.out.println("BeforeSuite:");
         fileName = "pavel.apk";
         appDir = new File(userDir, fileName);
         app = appDir.getAbsolutePath();
@@ -105,7 +106,14 @@ public class BaseTest {
 
         // server 1
         List list = new ArrayList<String>();
-        list.add("appium");
+        System.out.println(System.getProperty("os.name"));
+        if (System.getProperty("os.name").equals("Windows 10")) {
+            list.add("appium.cmd");
+        } else {
+            list.add("appium");
+
+        }
+        list.add("appium.cmd");
         list.add("--log-level");
         if (devicePlatform.contains("android")) {
             list.add("error");

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="39.699" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="48.925" tests="1" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_111\jre\bin"/>
@@ -67,5 +67,36 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="requestLogin" classname="SingInTest" time="19.844"/>
+  <testcase name="requestLogin" classname="SingInTest" time="29.053">
+    <failure message="Can&apos;t locate an element by this strategy: Locator map: &#10;- native content: &quot;By.AndroidUIAutomator: new UiScrollable(new UiSelector()).scrollIntoView(new UiSelector().resourceIdMatches(&quot;.*id/congratulationButton&quot;))&quot; &#10;- html content: &quot;by id or name &quot;button&quot;&quot;" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: 
+Can't locate an element by this strategy: Locator map: 
+- native content: "By.AndroidUIAutomator: new UiScrollable(new UiSelector()).scrollIntoView(new UiSelector().resourceIdMatches(".*id/congratulationButton"))" 
+- html content: "by id or name "button""
+	at SingInTest.requestLogin(SingInTest.java:25)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@1500b2f3 (tried for 10 second(s) with 500 MILLISECONDS interval)
+	at SingInTest.requestLogin(SingInTest.java:25)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 6.09 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'DESKTOP-O7AV493', ip: '172.16.5.45', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_111'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities [{app=C:\Users\Pavel\Downloads\test_clients\pavel.apk, appPackage=com.example.user.pocotest, deviceScreenSize=1440x2560, networkConnectionEnabled=true, warnings={}, appWaitActivity=com.example.user.pocotest.*, appWaitPackage=com.example.user.pocotest, databaseEnabled=false, deviceName=ce12160c130ae41504, platform=LINUX, deviceUDID=ce12160c130ae41504, appActivity=com.example.user.pocotest.activities.WelcomeActivity, desired={app=C:\Users\Pavel\Downloads\test_clients\pavel.apk, appPackage=com.example.user.pocotest, appWaitActivity=com.example.user.pocotest.*, platformName=Android, deviceName=Samsung}, platformVersion=7.0, webStorageEnabled=false, locationContextEnabled=false, takesScreenshot=true, javascriptEnabled=true, deviceModel=SM-G935F, platformName=Android, deviceManufacturer=samsung}]
+Session ID: 63ccaec6-2bd5-40e2-b5ec-395cd96a06eb
+*** Element info: {Using=-android uiautomator, value=new UiScrollable(new UiSelector()).scrollIntoView(new UiSelector().resourceIdMatches(".*id/congratulationButton"))}
+	at SingInTest.requestLogin(SingInTest.java:25)
+</failure>
+    <system-out><![CDATA[BeforeTest:
+file location: C:\Users\Pavel\Downloads\test_clients\pavel.apk
+   start Appium server
+ start appium as: [appium.cmd, --log-level, error, --port, 4725, --bootstrap-port, 5725, --command-timeout, 90, --session-override, --log-timestamp]
+  appium server started
+Before method:
+DRIVER start:
+C:\Users\Pavel\Downloads\test_clients\pavel.apk
+Request Login test 
+Login Activity
+]]></system-out>
+  </testcase>
 </testsuite>

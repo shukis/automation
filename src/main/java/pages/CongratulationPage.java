@@ -25,7 +25,7 @@ public class CongratulationPage {
     }
 
     public boolean checkCongratulationPage() {
-        if (textView.getText().equals("Congratulations on the successful registration!")){
+        if (textView.isDisplayed()){
             return true;
     }
         return false;

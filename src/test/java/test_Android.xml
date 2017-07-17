@@ -46,11 +46,8 @@
         <parameter name="devicePlatform" value="android"/> <!-- fastReset -->
         <parameter name="deviceName" value="ce12160c130ae41504"/> <!-- 0715f7a597583b36 (Samsung S6) YT911B1KQX (Sony M4) ENU7N16126001437 (Nexus6) ENU7N16126001437 (Nexus 5x) LGH8155e9892e6 (G4) LGH85093d50481 (G5) / emulator-5554  06be239860ade52c -->
         <classes>
-            <!--<class name="SignUpTest"/>-->
+            <class name="SignUpTest"/>
             <class name="SingInTest">
-                <methods>
-                    <include name="sign_in"></include>
-                </methods>
             </class>
         </classes>
     </test>

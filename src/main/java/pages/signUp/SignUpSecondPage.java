@@ -4,6 +4,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
@@ -20,7 +21,7 @@ public class SignUpSecondPage {
     AndroidElement confirmPassword;
     @AndroidFindBy(id="com.example.user.pocotest:id/terms")
     AndroidElement terms;
-    @AndroidFindBy(id="com.example.user.pocotest:id/terms")
+    @AndroidFindBy(id="com.example.user.pocotest:id/signUpSecondContinue")
     AndroidElement nextStepButton;
 
     public SignUpSecondPage(AndroidDriver driver){

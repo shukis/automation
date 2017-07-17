@@ -6,10 +6,7 @@ import org.bytedeco.javacpp.tesseract;
 import org.jcp.xml.dsig.internal.dom.Utils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,11 +41,11 @@ public class BaseTest {
 
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite() throws Exception {
+        System.out.println("BeforeSuite:");
         userDir = "/Users/" +
                 System.getProperty("user.name") +
                 "/Downloads/test_clients/";
         userDir = userDir.replace("\"", "");
-        System.out.println("BeforeSuite:");
         fileName = "pavel.apk";
         appDir = new File(userDir, fileName);
         app = appDir.getAbsolutePath();
@@ -59,6 +56,7 @@ public class BaseTest {
         appActivity = "com.example.user.pocotest.*";
         startLocalAppiumServer("android");
 
+        System.out.println("BeforeSuite: end");
 
     }
 
@@ -66,8 +64,15 @@ public class BaseTest {
     public void beforeMethod() throws Exception {
         System.out.println("Before method:");
         setupDriver();
+        System.out.println("Before method: end");
     }
 
+    @AfterMethod(alwaysRun = true)
+    public void AfterMethod() throws Exception {
+        System.out.println("AfterMethod method:");
+        setupDriver();
+        System.out.println("AfterMethod method: end");
+    }
 
     @AfterSuite(alwaysRun = true)
     public void afterSuite() throws InterruptedException {
@@ -136,6 +141,7 @@ public class BaseTest {
             pb1.redirectOutput(ProcessBuilder.Redirect.INHERIT);
             appium_Process = pb1.start();
 
+            Thread.sleep(10000);
             System.out.println("  appium server started");
         } catch (Exception e) {
             System.out.println("  appium server start FAILED");

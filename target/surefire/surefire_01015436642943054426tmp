@@ -1,0 +1,8 @@
+#surefire_0
+#Mon Jul 17 16:05:21 EEST 2017
+userPersonalID=1234567890
+user.dir=C\:\\Users\\Pavel\\automation
+suiteXmlFile=src/test/java/test_Android.xml
+openCV320=C\:\\Users\\Pavel\\automation/src/test/java/openCV320
+localRepository=C\:\\Users\\Pavel\\.m2\\repository
+basedir=C\:\\Users\\Pavel\\automation

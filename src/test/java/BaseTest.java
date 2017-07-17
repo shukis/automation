@@ -90,6 +90,7 @@ public class BaseTest {
     private void setupDriver() {
         System.out.println("DRIVER start:");
         String app = appDir.getAbsolutePath();
+        System.out.println(appDir.getAbsolutePath());
         driver = AppiumDriverBuilder.configureAppium(app, devicePlatform, deviceName, appPackage, appActivity, port);
 
     }

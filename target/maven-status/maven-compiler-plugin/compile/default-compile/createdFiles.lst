@@ -1,7 +1,12 @@
+pages\Gmail\InsertEmailPage.class
 pages\LoginPage.class
 pages\signUp\SignUpSecondPage.class
-pages\CongratulationPage.class
 pages\signUp\SignUpFirstPage.class
-AppiumDriverBuilder.class
 pages\MainPage.class
 pages\signUp\SignUpThirdPage.class
+pages\Gmail\InsertPasswordPage.class
+listeners\RetryAnalyzer.class
+pages\CongratulationPage.class
+pages\Gmail\GmailPage.class
+AppiumDriverBuilder.class
+listeners\RetryListener.class

@@ -1,25 +1,19 @@
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobilePlatform;
+import listeners.RetryAnalyzer;
 import org.apache.commons.io.FileUtils;
-import org.bytedeco.javacpp.lept;
-import org.bytedeco.javacpp.tesseract;
-import org.jcp.xml.dsig.internal.dom.Utils;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.testng.ITestContext;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Thread.sleep;
-import static org.bytedeco.javacpp.lept.pixDestroy;
-import static org.bytedeco.javacpp.lept.pixRead;
+
 
 /**
  * Created by Pavel on 12.07.2017.
@@ -36,10 +30,17 @@ public class BaseTest {
     public static AndroidDriver driver = null;
     public static String userDir;
     public static String fileName;
+    public static String email;
+    public static String password;
 
     public static File appDir = null;
 
+    public static ArrayList<Integer> passedtests = new ArrayList<>();
+    public static ArrayList<Integer> failedtests = new ArrayList<>();
+    public static ArrayList<Integer> skippedtests = new ArrayList<>();
+
     @BeforeSuite(alwaysRun = true)
+    @Parameters()
     public void beforeSuite() throws Exception {
         System.out.println("BeforeSuite:");
         userDir = "/Users/" +
@@ -49,8 +50,6 @@ public class BaseTest {
         fileName = "pavel.apk";
         appDir = new File(userDir, fileName);
         app = appDir.getAbsolutePath();
-        System.out.println("file location: " + app);
-        deviceName = "Samsung";
         devicePlatform = MobilePlatform.ANDROID;
         appPackage = "com.example.user.pocotest";
         appActivity = "com.example.user.pocotest.*";
@@ -60,16 +59,58 @@ public class BaseTest {
 
     }
 
+    @BeforeTest
+    public void beforeTest() {
+
+        System.out.println("BeforeTest()");
+        RetryAnalyzer.resetRetryCount();
+    }
+
     @BeforeMethod(alwaysRun = true)
-    public void beforeMethod() throws Exception {
+    @Parameters({"myEmail", "myPassword", "url", "deviceName"})
+    public void beforeMethod(@Optional String myEmailValue, @Optional String myPasswordValue, @Optional String url, @Optional String myDeviceName) throws Exception {
         System.out.println("Before method:");
-        setupDriver();
+        System.out.println("retryAnalyzer counter: " + RetryAnalyzer.counter);
+        Thread.sleep(1000);
+        email = myEmailValue;
+        password = myPasswordValue;
+        if (System.getProperty("email") != null && email != null) {
+            email = System.getProperty("email");
+        }
+
+        deviceName = myDeviceName;
+        if (myDeviceName == null) {
+            deviceName = "Android";
+        }
+        setupDriver(url);
         System.out.println("Before method: end");
     }
 
     @AfterMethod(alwaysRun = true)
-    public void AfterMethod() throws Exception {
+    public void AfterMethod(ITestContext context, ITestResult iTestResult) throws Exception {
+        iTestResult.getMethod().getMethodName();
+        if (iTestResult.getStatus() == 1) {
+            passedtests.add(1);
+            RetryAnalyzer.resetRetryCount();
+        } else if (iTestResult.getStatus() == 2) {
+            failedtests.add(1);
+            getScreenshot("C:\\Users\\Pavel\\Downloads\\test_clients\\" + iTestResult.getMethod().getMethodName() + "_" + deviceName + "_" + "_Failed.png");
+        } else if (iTestResult.getStatus() == 3) {
+            skippedtests.add(1);
+            getScreenshot("C:\\Users\\Pavel\\Downloads\\test_clients\\" + iTestResult.getMethod().getMethodName() + "_" + deviceName + "_" + "_Skipped.png");
+        }
+        System.out.println("-----------");
+        System.out.println("-- Passed tests: " + passedtests.size());
+        System.out.println("-- Failed tests: " + failedtests.size());
+        System.out.println("-- Skipped tests: " + skippedtests.size());
+        System.out.println("-----------");
+        if (iTestResult.getStatus() == 2 || iTestResult.getStatus() == 3) {
+
+        }
+
+
         System.out.println("AfterMethod method:");
+
         System.out.println("AfterMethod method: end");
     }
 
@@ -92,23 +133,20 @@ public class BaseTest {
         }
     }
 
-    private void setupDriver() {
+    private void setupDriver(String url) {
         System.out.println("DRIVER start:");
-        String app = appDir.getAbsolutePath();
-        System.out.println(appDir.getAbsolutePath());
-        driver = AppiumDriverBuilder.configureAppium(app, devicePlatform, deviceName, appPackage, appActivity, port);
-
+        driver = AppiumDriverBuilder.configureAppiumAndroid(app, devicePlatform, deviceName, appPackage, appActivity, port, url);
     }
 
     private void startLocalAppiumServer(final String devicePlatform) {
         String[] cmd;
         System.out.println("   kill Appium server");
-        if (port==null) {
-            port = "4725"; // default Android server 1 port
+        if (port == null) {
+            port = "4725";
         }
-        if(System.getProperty("os.name").contains("Windows")){
-            cmd = new String[] {"FOR /F ","\"tokens=5 delims= \""," %P IN ('netstat -a -n -o ^| findstr :"+port+"') DO TaskKill.exe /F /PID %P"};
-        }else{
+        if (System.getProperty("os.name").contains("Windows")) {
+            cmd = new String[]{"cmd.exe", "/c", "FOR /F \"tokens=5 delims= \" %P IN ('netstat -a -n -o ^| findstr :" + port + "') DO TaskKill.exe /F /PID %P"};
+        } else {
             cmd = new String[]{"sh", "-c", "lsof -P | grep ':" + port + "' | awk '{print $2}' | xargs kill -9"};
         }
         ProcessBuilder pb = new ProcessBuilder(cmd);
@@ -116,23 +154,19 @@ public class BaseTest {
         pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
         try {
             final Process p = pb.start();
-            // wait for termination.
             p.waitFor();
-            //System.out.println("   executeShell(): - DONE!");
             p.destroy();
             if (p.isAlive()) {
                 System.out.println("  executeShell(): closing Forcibly");
                 p.destroyForcibly();
             }
+            Thread.sleep(10000);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //start server
         System.out.println("   start Appium server");
-
-        // server 1
         List list = new ArrayList<String>();
         System.out.println(System.getProperty("os.name"));
         if (System.getProperty("os.name").contains("Windows")) {
@@ -172,6 +206,39 @@ public class BaseTest {
         }
 
     }
+
+    public static void getScreenshot(String outputlocation) throws IOException {
+        System.out.println("Capturing the snapshot of the page ");
+        File srcFiler = driver.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(srcFiler, new File(outputlocation));
+    }
+
+//    private void startEmulator(String deviceName) {
+//        String emulatorPort = deviceName.substring(deviceName.length() - 4);
+//        //String[] cmd = new String[]{"cmd.exe", "/c", "emulator","-avd Pixel_API_25"};
+//
+//
+//
+//        ProcessBuilder pb = new ProcessBuilder(cmd);
+//        pb.redirectErrorStream(true);
+//        pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+//        try{
+//            final Process p = pb.start();
+//            p.waitFor();
+//            p.destroy();
+//            //Runtime.getRuntime().exec("cmd.exe /c emulator  -port "+emulatorPort+" -no-boot-anim -netdelay none -netspeed full -avd Pixel_API_25");
+//            //ProcessBuilder pb1 = new ProcessBuilder(list);
+////
+////            pb1.redirectErrorStream(true);
+////            pb1.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+////            pb1.start();
+//            Thread.sleep(20000);
+//            System.out.println("emulator started");
+//        }catch (Exception e){
+//            System.out.println("emulator start failed");
+//            e.printStackTrace();
+//        }
+//    }
 
 
 }

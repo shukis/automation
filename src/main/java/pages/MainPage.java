@@ -18,16 +18,16 @@ public class MainPage {
     @AndroidFindBy(id = "android:id/content")
     @AndroidFindBy(className = "android.widget.TextView")
     AndroidElement welcomeText;
-    @AndroidFindBy(id="com.example.user.pocotest:id/welcomeLogIn")
+    @AndroidFindBy(id = "com.example.user.pocotest:id/welcomeLogIn")
     private AndroidElement logInButton;
-    @AndroidFindBy(id="com.example.user.pocotest:id/welcomeSignUp")
+    @AndroidFindBy(id = "com.example.user.pocotest:id/welcomeSignUp")
     private AndroidElement signUpButton;
 
     public MainPage(AndroidDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver, 5, TimeUnit.SECONDS), this);
     }
 
-    public void tapLoginButton(){
+    public void tapLoginButton() {
         logInButton.click();
     }
 
@@ -42,8 +42,9 @@ public class MainPage {
         }
         return true;
     }
-    public boolean checkWelcomeText(){
-        if(welcomeText.getText().equals("Welcome")) {
+
+    public boolean checkWelcomeText() {
+        if (welcomeText.getText().equals("Welcome")) {
             System.out.println(welcomeText.getText());
             return true;
         }

@@ -23,7 +23,7 @@ public class InsertPasswordPage {
     }
 
     public void insertPassword(String password) {
-
+        System.out.println("Gmail InsertPassword page: password - "+password);
         int attempts = 0;
         do {
             attempts++;

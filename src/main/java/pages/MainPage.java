@@ -28,26 +28,22 @@ public class MainPage {
     }
 
     public void tapLoginButton() {
+        System.out.println("Main page: tap Login button...");
         logInButton.click();
     }
 
-    public boolean tapSignUpButton() {
-        try {
-
-            System.out.println(" tap 'SignUp' button...");
-            signUpButton.click();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-        return true;
+    public void tapSignUpButton() {
+        System.out.println("main page: tap SignUp button...");
+        signUpButton.click();
     }
 
     public boolean checkWelcomeText() {
         if (welcomeText.getText().equals("Welcome")) {
             System.out.println(welcomeText.getText());
+            System.out.println("Main page: checked welcome text!");
             return true;
         }
+        System.out.println("Main page: checked that welcome text is not visible!");
         return false;
     }
 }

@@ -32,13 +32,20 @@ public class LoginPage {
 
     }
 
-    public void checkToolbar(){
-        System.out.println(toolbar.get(0).getText());
+    public boolean checkToolbar(){
+        System.out.print("Checking toolbar: ");
+        String toolbarText = toolbar.get(0).getText();
+        System.out.println(toolbarText);
+        if(toolbarText.equals("Login Activity")){
+            return true;
+        }
+        return false;
     }
 
-    public void fillEditTextFields(String emailValue, String passwordValue){
+    public void fillEditTextFieldsAndGoToNextActivity(String emailValue, String passwordValue){
         fillEditTextField(email,emailValue);
         fillEditTextField(password,passwordValue);
+        taploginButton();
 
     }
 
@@ -51,6 +58,7 @@ public class LoginPage {
     }
 
     public void taploginButton(){
+        System.out.println("tapLoginButton():");
         loginButton.click();
     }
 

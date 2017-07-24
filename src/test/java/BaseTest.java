@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Thread.enumerate;
 import static java.lang.Thread.sleep;
 
 
@@ -22,16 +23,20 @@ public class BaseTest {
 
     private Process appium_Process;
     public static String app;
-    public static String deviceName;
+    public static String firstDeviceName;
+    public static String secondDeviceName;
     public static String devicePlatform;
     public static String appPackage;
     public static String appActivity;
-    public static String port;
+    public static String firstDevicePort = "4725";
+    public static String secondDevicePort = "4726";
     public static AndroidDriver driver = null;
+    public static AndroidDriver driver2 = null;
     public static String userDir;
     public static String fileName;
     public static String email;
     public static String password;
+    public static String url;
 
     public static File appDir = null;
 
@@ -40,8 +45,8 @@ public class BaseTest {
     public static ArrayList<Integer> skippedtests = new ArrayList<>();
 
     @BeforeSuite(alwaysRun = true)
-    @Parameters()
-    public void beforeSuite() throws Exception {
+    @Parameters({"myEmail", "myPassword", "runOnTwoDevices"})
+    public void beforeSuite(@Optional String myEmailValue, @Optional String myPasswordValue, @Optional String runOnTwoDevices) throws Exception {
         System.out.println("BeforeSuite:");
         userDir = "/Users/" +
                 System.getProperty("user.name") +
@@ -52,52 +57,55 @@ public class BaseTest {
         app = appDir.getAbsolutePath();
         devicePlatform = MobilePlatform.ANDROID;
         appPackage = "com.example.user.pocotest";
-        appActivity = "com.example.user.pocotest.*";
-        startLocalAppiumServer("android");
-
+        appActivity = ".activities.WelcomeActivity";
+        email = myEmailValue;
+        password = myPasswordValue;
+        startLocalAppiumServer(firstDevicePort);
+        System.out.println(runOnTwoDevices);
+        if (runOnTwoDevices != null && runOnTwoDevices.equals("true")) {
+            startLocalAppiumServer(secondDevicePort);
+        }
         System.out.println("BeforeSuite: end");
 
     }
 
     @BeforeTest
     public void beforeTest() {
-
         System.out.println("BeforeTest()");
         RetryAnalyzer.resetRetryCount();
     }
 
     @BeforeMethod(alwaysRun = true)
-    @Parameters({"myEmail", "myPassword", "url", "deviceName"})
-    public void beforeMethod(@Optional String myEmailValue, @Optional String myPasswordValue, @Optional String url, @Optional String myDeviceName) throws Exception {
+    @Parameters({"url", "deviceName"})
+    public void beforeMethod(@Optional String url, @Optional String myDeviceName, ITestContext context) throws Exception {
         System.out.println("Before method:");
         System.out.println("retryAnalyzer counter: " + RetryAnalyzer.counter);
         Thread.sleep(1000);
-        email = myEmailValue;
-        password = myPasswordValue;
+        this.url = url;
         if (System.getProperty("email") != null && email != null) {
             email = System.getProperty("email");
         }
-
-        deviceName = myDeviceName;
+        firstDeviceName = myDeviceName;
         if (myDeviceName == null) {
-            deviceName = "Android";
+            firstDeviceName = "Android";
         }
-        setupDriver(url);
+        setupDriver(myDeviceName, context);
         System.out.println("Before method: end");
     }
 
     @AfterMethod(alwaysRun = true)
     public void AfterMethod(ITestContext context, ITestResult iTestResult) throws Exception {
-        iTestResult.getMethod().getMethodName();
+        secondDeviceName = null;
+        System.out.println("AfterMethod method:");
         if (iTestResult.getStatus() == 1) {
             passedtests.add(1);
             RetryAnalyzer.resetRetryCount();
         } else if (iTestResult.getStatus() == 2) {
             failedtests.add(1);
-            getScreenshot("C:\\Users\\Pavel\\Downloads\\test_clients\\" + iTestResult.getMethod().getMethodName() + "_" + deviceName + "_" + "_Failed.png");
+            getScreenshot("C:\\Users\\Pavel\\Downloads\\test_clients\\" + iTestResult.getMethod().getMethodName() + "_" + firstDeviceName + "_" + "_Failed.png");
         } else if (iTestResult.getStatus() == 3) {
             skippedtests.add(1);
-            getScreenshot("C:\\Users\\Pavel\\Downloads\\test_clients\\" + iTestResult.getMethod().getMethodName() + "_" + deviceName + "_" + "_Skipped.png");
+            getScreenshot("C:\\Users\\Pavel\\Downloads\\test_clients\\" + iTestResult.getMethod().getMethodName() + "_" + firstDeviceName + "_" + "_Skipped.png");
         }
         System.out.println("-----------");
         System.out.println("-- Passed tests: " + passedtests.size());
@@ -108,10 +116,24 @@ public class BaseTest {
 
         }
 
-
-        System.out.println("AfterMethod method:");
-
         System.out.println("AfterMethod method: end");
+    }
+
+    @AfterTest
+    public void afterTest() {
+        System.out.println("AfterTest():");
+        System.out.println("Quit driver()...");
+        try {
+            if (driver != null) {
+                driver.quit();
+            }
+            if (driver2 != null) {
+                System.out.println("Quit driver2()...");
+                driver2.quit();
+            }
+        } catch (Exception e) {
+        }
+        System.out.println("AfterTest(): end");
     }
 
     @AfterSuite(alwaysRun = true)
@@ -133,12 +155,37 @@ public class BaseTest {
         }
     }
 
-    private void setupDriver(String url) {
-        System.out.println("DRIVER start:");
-        driver = AppiumDriverBuilder.configureAppiumAndroid(app, devicePlatform, deviceName, appPackage, appActivity, port, url);
+    private void setupDriver(String currentDevice, ITestContext context) {
+        if (url == null) {
+            System.out.println("file location: " + app);
+        }
+        if (context.getName().contains("Delfi")) {
+            System.out.println("file location: " + app);
+            System.out.println("url: " + url);
+            driver = AppiumDriverBuilder.configureAppiumAndroidOnlyApp(app, devicePlatform, firstDeviceName, appPackage, appActivity, firstDevicePort);
+        } else {
+            if (context.getName().contains("Do_SignUp")) {
+                secondDeviceName = "ce12160c130ae41504";
+                System.out.println("DRIVER and DRIVER2 start:");
+                System.out.println("first: " + firstDeviceName);
+                System.out.println("second: " + secondDeviceName);
+                driver = AppiumDriverBuilder.configureAppiumAndroidOnlyApp(app, devicePlatform, firstDeviceName, appPackage, appActivity, firstDevicePort);
+                driver2 = AppiumDriverBuilder.configureAppiumAndroidOnlyApp(app, devicePlatform, secondDeviceName, appPackage, appActivity, secondDevicePort);
+            } else if (!currentDevice.contains("emulator")) {
+                System.out.println("DRIVER start:");
+                System.out.println("first: " + firstDeviceName);
+                System.out.println("second: " + secondDeviceName);
+                driver = AppiumDriverBuilder.configureAppiumAndroidOnlyApp(app, devicePlatform, firstDeviceName, appPackage, appActivity, firstDevicePort);
+            } else if (currentDevice.contains("emulator")) {
+                System.out.println("DRIVER start:");
+                System.out.println("first: " + firstDeviceName);
+                System.out.println("second: " + secondDeviceName);
+                driver = AppiumDriverBuilder.configureAppiumAndroidOnlyURL(devicePlatform, firstDeviceName, appPackage, appActivity, firstDevicePort, url);
+            }
+        }
     }
 
-    private void startLocalAppiumServer(final String devicePlatform) {
+    protected void startLocalAppiumServer(String port) {
         String[] cmd;
         System.out.println("   kill Appium server");
         if (port == null) {
@@ -208,13 +255,20 @@ public class BaseTest {
     }
 
     public static void getScreenshot(String outputlocation) throws IOException {
-        System.out.println("Capturing the snapshot of the page ");
-        File srcFiler = driver.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(srcFiler, new File(outputlocation));
+        if (driver2 == null) {
+            System.out.println("Capturing the snapshot of the page ");
+            File srcFiler = driver.getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(srcFiler, new File(outputlocation));
+        }
+        if (driver2 != null) {
+            File src = driver2.getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(src, new File(outputlocation));
+        }
+
     }
 
-//    private void startEmulator(String deviceName) {
-//        String emulatorPort = deviceName.substring(deviceName.length() - 4);
+//    private void startEmulator(String firstDeviceName) {
+//        String emulatorPort = firstDeviceName.substring(firstDeviceName.length() - 4);
 //        //String[] cmd = new String[]{"cmd.exe", "/c", "emulator","-avd Pixel_API_25"};
 //
 //

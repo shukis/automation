@@ -23,6 +23,7 @@ public class InsertEmailPage {
 
 
     public void insertEmail(String email) {
+        System.out.println("Gmail InsertEmail page: email - "+email);
         emailInsertView.sendKeys(email);
         nextButton.click();
     }

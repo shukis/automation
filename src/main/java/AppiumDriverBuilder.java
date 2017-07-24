@@ -15,28 +15,30 @@ public class AppiumDriverBuilder {
     private static String errorMessage;
 
 
+    public static AndroidDriver configureAppiumAndroidOnlyApp(String app, String devicePlatform, String deviceName, String appPackage, String appActivity, String port) {
+        return configureAppiumAndroid(app, devicePlatform, deviceName, appPackage, appActivity, port, null);
+    }
+
+    public static AndroidDriver configureAppiumAndroidOnlyURL(String devicePlatform, String deviceName, String appPackage, String appActivity, String port, String url) {
+        return configureAppiumAndroid(null, devicePlatform, deviceName, appPackage, appActivity, port, url);
+    }
+
     public static AndroidDriver configureAppiumAndroid(String app, String devicePlatform, String deviceName, String appPackage, String appActivity, String port, String url) {
-
         capabilities = new DesiredCapabilities();
-
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, devicePlatform);
         capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, appPackage);
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_WAIT_ACTIVITY, appActivity);
-
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, appActivity);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
         capabilities.setCapability(MobileCapabilityType.UDID, deviceName);
-
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
         capabilities.setCapability(MobileCapabilityType.FULL_RESET, false);
-        if (url == null) {
-            System.out.println("file location: " + app);
+        if(app!=null) {
             capabilities.setCapability(MobileCapabilityType.APP, app);
             createAndroidDriver(port, capabilities);
-        } else {
+        }else{
             capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
             createAndroidDriver(port, capabilities);
             androidDriver.get(url);
-
         }
         return androidDriver;
     }

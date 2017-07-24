@@ -17,6 +17,7 @@ public class GmailLoginTest extends BaseTest {
     @Test
     public void requestLoginToGmail() throws MalformedURLException, InterruptedException {
         System.out.println("GmailLoginTest");
+        System.err.println(driver.currentActivity());
         InsertEmailPage emailPage = new InsertEmailPage(driver);
         InsertPasswordPage passwordPage = new InsertPasswordPage(driver);
         GmailPage gmailPage = new GmailPage(driver);

@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="test_Delfi">
+    <listeners>
+        <listener class-name="listeners.RetryListener"/>
+    </listeners>
+    <test name="Delfi" preserve-order="true">
+        <parameter name="url" value="http://delfi.ee"/>
+        <parameter name="deviceName"
+                   value="emulator-5558"/>
+        <classes>
+            <class name="DelfiTest"/>
+        </classes>
+    </test>
+
+</suite>

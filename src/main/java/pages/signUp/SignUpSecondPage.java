@@ -29,6 +29,7 @@ public class SignUpSecondPage {
     }
 
     public void fillEditTextFields(String emailValue, String passwordValue){
+        System.out.println("SignUp Second page: fill email: "+emailValue+"; password: "+passwordValue);
         fillEditTextField(email,emailValue);
         fillEditTextField(password,passwordValue);
 
@@ -43,6 +44,7 @@ public class SignUpSecondPage {
         }
     }
     public void tapNextStepButton(){
+        System.out.println("SignUp Second page: accept terms and tap button");
         terms.click();
         nextStepButton.click();
     }

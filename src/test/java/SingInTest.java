@@ -2,11 +2,9 @@ import listeners.RetryAnalyzer;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CongratulationPage;
-import pages.Gmail.InsertEmailPage;
 import pages.LoginPage;
 import pages.MainPage;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 
 /**
@@ -27,8 +25,7 @@ public class SingInTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         mainPage.tapLoginButton();
         loginPage.checkToolbar();
-        loginPage.fillEditTextFields("abb@com.com", "abcabc");
-        loginPage.taploginButton();
+        loginPage.fillEditTextFieldsAndGoToNextActivity(email, password);
         Thread.sleep(5000);
         System.out.println(driver.currentActivity());
         if (driver.currentActivity().contains("Login")) {
@@ -36,7 +33,7 @@ public class SingInTest extends BaseTest {
             driver.navigate().back();
         } else {
             CongratulationPage congratulationPage = new CongratulationPage(driver);
-            congratulationPage.tapCongratulationButton();
+            congratulationPage.checkCongratulationText();
         }
         if (RetryAnalyzer.counter == 0) {
             Assert.assertFalse(mainPage.checkWelcomeText());

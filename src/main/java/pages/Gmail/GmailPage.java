@@ -27,7 +27,7 @@ public class GmailPage {
     }
 
     public void tapMoreButton() {
-        System.out.println("tapMoreButton()");
+        System.out.println("Gmail page: tapMoreButton()");
         int attempts = 0;
         do {
             attempts++;

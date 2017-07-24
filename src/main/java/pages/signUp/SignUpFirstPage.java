@@ -22,10 +22,11 @@ public class SignUpFirstPage {
 
     public SignUpFirstPage(AndroidDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver, 1, TimeUnit.SECONDS), this);
+
     }
 
     public void tapGotItButton(){
-        System.out.println(" tap 'GOT IT!' button");
+        System.out.println("SignUp First page: tap 'GOT IT!' button");
         gotItButton.click();
     }
 

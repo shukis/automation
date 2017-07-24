@@ -1,33 +1,30 @@
 <!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
 <suite name="Test_Android">
-    <parameter name="devicePlatform" value="android"/>
+    <parameter name="runOnTwoDevices" value="true"/>
+    <parameter name="myEmail" value="abbc@com.com"/>
+    <parameter name="myPassword" value="abcabc"/>
     <listeners>
         <listener class-name="listeners.RetryListener"/>
     </listeners>
-    <test name="Do_SignUp" preserve-order="true">
-        <parameter name="runDestination" value="Local"/> <!-- Local / genymotion / emulator-->
-        <parameter name="devicePlatform" value="android"/> <!-- fastReset -->
-        <parameter name="myEmail" value="abb@com.com"/>
-        <parameter name="myPassword" value="abcabc"/>
-        <parameter name="deviceName"
-                   value="emulator-5558"/>
-        <classes>
-            <class name="SignUpTest"/>
-        </classes>
-    </test>
-    <test name="Do_Login" preserve-order="true">
-
-        <parameter name="deviceName" value="emulator-5558"/>
+    <!--<test name="Do_SignUp" preserve-order="true">-->
+        <!--<parameter name="deviceName"-->
+                   <!--value="emulator-5558"/>-->
+        <!--<classes>-->
+            <!--<class name="SignUpTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+    <!--<test name="Do_Login" preserve-order="true">-->
+        <!--&lt;!&ndash;<parameter name="deviceName" value="emulator-5558"/>&ndash;&gt;-->
         <!--<parameter name="deviceName" value="ce12160c130ae41504"/>-->
-        <groups>
-            <dependencies>
-                <group name="group2" depends-on="group1"/>
-            </dependencies>
-        </groups>
-        <classes>
-            <class name="SingInTest"/>
-        </classes>
-    </test>
+        <!--<groups>-->
+            <!--<dependencies>-->
+                <!--<group name="group2" depends-on="group1"/>-->
+            <!--</dependencies>-->
+        <!--</groups>-->
+        <!--<classes>-->
+            <!--<class name="SingInTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
     <test name="Do_Login_Gmail" preserve-order="true">
         <parameter name="url" value="http://gmail.com"/>
         <parameter name="deviceName"

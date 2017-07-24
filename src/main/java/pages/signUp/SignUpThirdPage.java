@@ -23,8 +23,9 @@ public class SignUpThirdPage {
         PageFactory.initElements(new AppiumFieldDecorator(driver, 1, TimeUnit.SECONDS), this);
     }
 
-    public void fillEditTextFields(String emailValue, String postalCodeValue){
-        fillEditTextField(city,emailValue);
+    public void fillEditTextFields(String cityValue, String postalCodeValue){
+        System.out.println("SignUp Third page: fill city - "+cityValue+"; postalCode - "+postalCodeValue);
+        fillEditTextField(city,cityValue);
         fillEditTextField(postalCode,postalCodeValue);
 
     }
@@ -38,6 +39,7 @@ public class SignUpThirdPage {
         }
     }
     public void tapNextStepButton(){
+        System.out.println("SignUp Third page: tap button");
         nextStepButton.click();
     }
 }
